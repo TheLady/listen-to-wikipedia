@@ -57,7 +57,7 @@ function wp_action(data, svg_area, silent) {
             play_sound(size, 'sub', 1);
         }
     }
-    
+
     if (silent) {
         var starting_opacity = 0.2;
     } else {
@@ -168,7 +168,7 @@ wikipediaSocket.init = function(ws_url, lid, svg_area) {
                 }
 
                 if (data.ns == 'Main' || DEBUG) {
-                    if (!isNaN(data.change_size) && (TAG_FILTERS.length == 0 || $(TAG_FILTERS).filter($.map(data.hashtags, function(i) { 
+                    if (!isNaN(data.change_size) && (TAG_FILTERS.length == 0 || $(TAG_FILTERS).filter($.map(data.hashtags, function(i) {
                         return i.toLowerCase();
                     })).length > 0)) {
                         if (TAG_FILTERS.length > 0) {
@@ -225,7 +225,7 @@ wikipediaSocket.init = function(ws_url, lid, svg_area) {
                     var nu_str = '<a href="http://' + lid + '.wikipedia.org/w/index.php?title=User_talk:' + data.user + '&action=edit&section=new">' + data.user + '</a>';
                     nu_str += ' joined ' + lid + ' Wikipedia! Welcome!';
                     log_rc(nu_str, 20);
-                } 
+                }
             };
         }
     };
@@ -453,6 +453,9 @@ function update_tag_warning(svg_area) {
         return
     }
     if (!tag_text) {
+        var svg_area = d3.select("#area").append("svg")
+            .attr({width: width, height: height})
+            .style('background-color', '#1c2733');
         tag_area = svg_area.append('g');
         tag_box = tag_area.append('rect')
             .attr('fill', newuser_box_color)

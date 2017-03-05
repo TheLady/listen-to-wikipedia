@@ -19,8 +19,8 @@
     <script>
     var global_mute = false;
     var global_volume = 50;
-    var TAG_FILTERS = [];
-    var DEBUG = false;
+    var TAG_FILTERS = ["#artandfeminism"];
+    var DEBUG = true;
     $(function(){
       Howler.volume(global_volume * .01);
 
@@ -291,7 +291,7 @@
         defaultTextWidth: 100,
         unique: false,
         onChange: function() {
-          TAG_FILTERS = [];
+          TAG_FILTERS = ["#artandfeminism"];
           $('.tag span').each(function(val) {
               var tag = $(this).text().trim().replace('#', '').toLowerCase();
               if($.inArray(tag, TAG_FILTERS) === -1){
